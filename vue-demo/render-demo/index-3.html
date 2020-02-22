@@ -1,0 +1,42 @@
+<!-- 对于低版本重复渲染多个组件，低版本中解决方式 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ele></ele>
+    </div>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+    // 局部声明组件
+    var Child = {
+        render(createElement) {
+            return createElement('p', 'text')
+        }
+    }
+
+    Vue.component('ele', {
+        render(createElement) {
+            return createElement('div', 
+                Array.apply(null, {
+                    length: 5
+                }).map(() => {
+                    return createElement(Child)
+                })
+            )
+        }
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

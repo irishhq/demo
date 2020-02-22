@@ -1,0 +1,38 @@
+<!-- 重复使用含有组件的slot -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ele>
+            <Child></Child>
+        </ele>
+    </div>
+</body>
+<script src="../vue.min.js">// vue版本2.1.7</script>
+<script>
+    // 全局注册组件
+    Vue.component('Child', {
+        render(createElement) {
+            return createElement('p', 'text')
+        }
+    })
+
+    Vue.component('ele', {
+        render(createElement) {
+            return createElement('a', [
+                this.$slots.default,
+                this.$slots.default
+            ])
+        }
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>
+</html>

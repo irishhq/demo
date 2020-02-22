@@ -1,0 +1,2 @@
+1. 子组件修改prop value的值报错： `at https://vuejs.org/guide/deployment.html
+vue.js:634 [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "value"`

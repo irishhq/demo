@@ -1,0 +1,42 @@
+<!-- 重复使用组件 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ele></ele>
+    </div>
+</body>
+<script src="../vue.min.js"></script>
+<script>
+    // 局部声明组件
+    var Child = {
+        render(createElement) {
+            return createElement('p', 'text')
+        }
+    }
+
+    Vue.component('ele', {
+        render(createElement) {
+            // 创建一个子节点，使用组件Child
+            var ChildNode = createElement(Child)
+            console.log('.......', ChildNode, '=========', Child)
+            return createElement('div', [
+                ChildNode,
+                ChildNode
+            ])
+        }
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>
+
+</html>

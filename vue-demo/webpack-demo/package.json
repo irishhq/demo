@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open --config webpack.config.js",
-    "build": "webpack --progress --hide-modules"
+    "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },
   "author": "irishuang",
   "license": "ISC",
@@ -30,7 +30,8 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "vue": "^2.6.11"
